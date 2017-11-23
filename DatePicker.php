@@ -1,5 +1,6 @@
-<?php
-namespace Model;
+<?php namespace Model\DatePicker;
+
+use Model\Core\Module;
 
 class DatePicker extends Module {
 	/** @var array */
