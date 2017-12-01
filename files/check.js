@@ -1,53 +1,56 @@
 function checkDatePicker(id){
-	if(typeof id!='string'){
-		var arr = [];
-		var arr1 = document.querySelectorAll('input.datepicker_field'); // Retrocompatibilità
-		for(var i in arr1)
-			arr.push(arr1[i]);
-		if(window.innerWidth>=480){ // For smaller screen (aka smartphone) use only the default date plugin
-			var arr2 = document.querySelectorAll('input[type="date"]');
-			for(var i in arr2)
-				arr.push(arr2[i]);
-		}
-	}else{
-		var arr = [_(id)];
-	}
-
-	for(var i in arr){
-		if(typeof arr[i]!='object') continue;
-		if(arr[i].offsetParent===null) continue;
-
-		if(arr[i].getAttribute('type')=='date'){
-			if(isEdge()){
-				var v = arr[i].getValue();
-				arr[i].setAttribute('type', 'text');
-				arr[i].setValue(v, false);
+	return new Promise(function(resolve) {
+		if (typeof id != 'string') {
+			var arr = [];
+			var arr1 = document.querySelectorAll('input.datepicker_field'); // Retrocompatibilità
+			for (var i in arr1)
+				arr.push(arr1[i]);
+			if (window.innerWidth >= 480) { // For smaller screen (aka smartphone) use only the default date plugin
+				var arr2 = document.querySelectorAll('input[type="date"]');
+				for (var i in arr2)
+					arr.push(arr2[i]);
 			}
+		} else {
+			var arr = [_(id)];
+		}
 
-			if(isDateSupported() && !isEdge()){
-				var format = 'Y-m-d';
-			}else{
-				var format = 'd-m-Y';
+		for (var i in arr) {
+			if (typeof arr[i] != 'object') continue;
+			if (arr[i].offsetParent === null) continue;
 
-				var d = arr[i].getValue();
-				if(d){
-					d = new Date(d);
-					if(!isNaN(d.getTime())){
-						var day = d.getDate();
-						var month = d.getMonth()+1;
-						if(day<10) day = '0'+day;
-						if(month<10) month = '0'+month;
-						arr[i].value = day+'-'+month+'-'+d.getFullYear();
+			if (arr[i].getAttribute('type') == 'date') {
+				if (isEdge()) {
+					var v = arr[i].getValue();
+					arr[i].setAttribute('type', 'text');
+					arr[i].setValue(v, false);
+				}
+
+				if (isDateSupported() && !isEdge()) {
+					var format = 'Y-m-d';
+				} else {
+					var format = 'd-m-Y';
+
+					var d = arr[i].getValue();
+					if (d) {
+						d = new Date(d);
+						if (!isNaN(d.getTime())) {
+							var day = d.getDate();
+							var month = d.getMonth() + 1;
+							if (day < 10) day = '0' + day;
+							if (month < 10) month = '0' + month;
+							arr[i].value = day + '-' + month + '-' + d.getFullYear();
+						}
 					}
 				}
+			} else {
+				var format = 'd-m-Y';
 			}
-		}else{
-			var format = 'd-m-Y';
-		}
-		if(arr[i].readOnly) continue;
+			if (arr[i].readOnly) continue;
 
-		attachDatePicker(arr[i], format);
-	}
+			attachDatePicker(arr[i], format);
+		}
+		resolve();
+	});
 }
 
 function attachDatePicker(el, format){
@@ -110,13 +113,5 @@ function isEdge(){
 }
 
 window.addEventListener('load', function(){
-	checkDatePicker();
-
-	if (typeof MutationObserver !== 'undefined') {
-		var observer = new MutationObserver(function (mutations) {
-			checkDatePicker();
-		});
-
-		observer.observe(document.body, {"childList": true, "subtree": true});
-	}
+	observeMutations(checkDatePicker);
 });
