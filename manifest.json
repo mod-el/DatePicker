@@ -11,5 +11,6 @@
 	],
 	"css": [
 		"https://cdn.jsdelivr.net/gh/stefangabos/Zebra_Datepicker/dist/css/default/zebra_datepicker.min.css"
-	]
+	],
+	"assets-position": "foot"
 }
