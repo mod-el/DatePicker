@@ -20,7 +20,7 @@ function checkDatePicker(id){
 
 			if (arr[i].getAttribute('type') == 'date') {
 				if (isEdge()) {
-					var v = arr[i].getValue();
+					var v = arr[i].getValue(true);
 					arr[i].setAttribute('type', 'text');
 					arr[i].setValue(v, false);
 				}
@@ -30,7 +30,7 @@ function checkDatePicker(id){
 				} else {
 					var format = 'd-m-Y';
 
-					var d = arr[i].getValue();
+					var d = arr[i].getValue(true);
 					if (d) {
 						d = new Date(d);
 						if (!isNaN(d.getTime())) {
