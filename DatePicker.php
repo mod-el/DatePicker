@@ -26,35 +26,34 @@ class DatePicker extends Module
 	public function headings()
 	{
 		if ($this->options['multilang']) {
-			$dic = $this->model->_Multilang->getDictionary();
 			?>
             <script>
 				var zebraDatePickerMonths = [
-					'<?=entities($dic['calendar-january'])?>',
-					'<?=entities($dic['calendar-february'])?>',
-					'<?=entities($dic['calendar-march'])?>',
-					'<?=entities($dic['calendar-april'])?>',
-					'<?=entities($dic['calendar-may'])?>',
-					'<?=entities($dic['calendar-june'])?>',
-					'<?=entities($dic['calendar-july'])?>',
-					'<?=entities($dic['calendar-august'])?>',
-					'<?=entities($dic['calendar-september'])?>',
-					'<?=entities($dic['calendar-october'])?>',
-					'<?=entities($dic['calendar-november'])?>',
-					'<?=entities($dic['calendar-december'])?>'
+					'<?=entities($this->model->_Multilang->word('datepicker.january'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.february'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.march'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.april'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.may'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.june'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.july'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.august'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.september'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.october'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.november'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.december'))?>'
 				];
 				var zebraDatePickerDays = [
-					'<?=entities($dic['calendar-sunday'])?>',
-					'<?=entities($dic['calendar-monday'])?>',
-					'<?=entities($dic['calendar-tuesday'])?>',
-					'<?=entities($dic['calendar-wednesday'])?>',
-					'<?=entities($dic['calendar-thursday'])?>',
-					'<?=entities($dic['calendar-friday'])?>',
-					'<?=entities($dic['calendar-saturday'])?>'
+					'<?=entities($this->model->_Multilang->word('datepicker.sunday'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.monday'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.tuesday'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.wednesday'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.thursday'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.friday'))?>',
+					'<?=entities($this->model->_Multilang->word('datepicker.saturday'))?>'
 				];
-				var zebraDatePickerWeeks = '<?=entities($dic['calendar-weeks'])?>';
-				var zebraDatePickerToday = '<?=entities($dic['calendar-today'])?>';
-				var zebraDatePickerReset = '<?=entities($dic['calendar-reset'])?>';
+				var zebraDatePickerWeeks = '<?=entities($this->model->_Multilang->word('datepicker.weeks'))?>';
+				var zebraDatePickerToday = '<?=entities($this->model->_Multilang->word('datepicker.today'))?>';
+				var zebraDatePickerReset = '<?=entities($this->model->_Multilang->word('datepicker.reset'))?>';
             </script>
 			<?php
 		}
