@@ -2,7 +2,8 @@
 
 use Model\Core\Module;
 
-class DatePicker extends Module {
+class DatePicker extends Module
+{
 	/** @var array */
 	protected $options = [
 		'multilang' => false,
@@ -10,9 +11,11 @@ class DatePicker extends Module {
 
 	/**
 	 * @param array $options
+	 * @throws \Model\Core\Exception
 	 */
-	public function init($options){
-	    if(!$this->model->isLoaded('JQuery'))
+	public function init($options)
+	{
+		if (!$this->model->isLoaded('JQuery'))
 			$this->model->load('JQuery');
 		$this->options = array_merge($this->options, $options);
 	}
@@ -20,8 +23,9 @@ class DatePicker extends Module {
 	/**
 	 * Eventual headings for multilang websites
 	 */
-	public function headings(){
-		if($this->options['multilang']){
+	public function headings()
+	{
+		if ($this->options['multilang']) {
 			$dic = $this->model->_Multilang->getDictionary();
 			?>
             <script>
