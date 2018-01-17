@@ -4,11 +4,6 @@ use Model\Core\Module;
 
 class DatePicker extends Module
 {
-	/** @var array */
-	protected $options = [
-		'multilang' => false,
-	];
-
 	/**
 	 * @param array $options
 	 * @throws \Model\Core\Exception
@@ -17,7 +12,6 @@ class DatePicker extends Module
 	{
 		if (!$this->model->isLoaded('JQuery'))
 			$this->model->load('JQuery');
-		$this->options = array_merge($this->options, $options);
 	}
 
 	/**
@@ -25,7 +19,7 @@ class DatePicker extends Module
 	 */
 	public function headings()
 	{
-		if ($this->options['multilang']) {
+		if ($this->model->isLoaded('Multilang')) {
 			?>
             <script>
 				var zebraDatePickerMonths = [
