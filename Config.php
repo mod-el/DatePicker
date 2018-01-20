@@ -4,14 +4,12 @@ use Model\Core\Module_Config;
 
 class Config extends Module_Config
 {
-	/** @var string */
-	protected $name = 'DatePicker';
-
 	/**
 	 * @return bool
 	 */
-	public function makeCache(): bool{
-		if($this->model->isLoaded('Multilang')){
+	public function makeCache(): bool
+	{
+		if ($this->model->isLoaded('Multilang')) {
 			$this->model->_Multilang->checkAndInsertWords('datepicker', [
 				'january' => [
 					'it' => 'Gennaio',
