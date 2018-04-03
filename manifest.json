@@ -1,16 +1,16 @@
 {
 	"name": "DatePicker",
-	"description": "Integration with Zebra DatePicker 1.9.4",
+	"description": "Integration with Zebra DatePicker 1.9.7",
 	"version": "1.2.1",
 	"dependencies": {
-		"JQuery": ">=1.0.0"
+		"JQuery": ">=1.1.0"
 	},
 	"js": [
-		"https://cdn.jsdelivr.net/gh/stefangabos/Zebra_Datepicker/dist/zebra_datepicker.min.js",
+		"https://cdn.jsdelivr.net/npm/zebra_datepicker/dist/zebra_datepicker.min.js",
 		"files/check.js"
 	],
 	"css": [
-		"https://cdn.jsdelivr.net/gh/stefangabos/Zebra_Datepicker/dist/css/default/zebra_datepicker.min.css"
+		"https://cdn.jsdelivr.net/npm/zebra_datepicker/dist/css/default/zebra_datepicker.min.css"
 	],
 	"assets-position": "foot"
 }
