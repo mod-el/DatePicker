@@ -1,10 +1,7 @@
-function checkDatePicker(id){
-	return new Promise(function(resolve) {
+function checkDatePicker(id) {
+	return new Promise(function (resolve) {
 		if (typeof id != 'string') {
 			var arr = [];
-			var arr1 = document.querySelectorAll('input.datepicker_field'); // Retrocompatibilità
-			for (var i in arr1)
-				arr.push(arr1[i]);
 			if (window.innerWidth >= 480) { // For smaller screen (aka smartphone) use only the default date plugin
 				var arr2 = document.querySelectorAll('input[type="date"]');
 				for (var i in arr2)
@@ -53,65 +50,65 @@ function checkDatePicker(id){
 	});
 }
 
-function attachDatePicker(el, format){
-	if(typeof format=='undefined')
+function attachDatePicker(el, format) {
+	if (typeof format == 'undefined')
 		format = 'Y-m-d';
 
 	var obj = $(el);
 	var old_datepicker = obj.data('Zebra_DatePicker');
-	if(typeof old_datepicker=='undefined'){
+	if (typeof old_datepicker == 'undefined') {
 		el.setAttribute('autocomplete', 'off');
 		var options = {
 			show_icon: false,
 			format: format,
-			months: (typeof zebraDatePickerMonths!='undefined') ? zebraDatePickerMonths : ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+			months: (typeof zebraDatePickerMonths != 'undefined') ? zebraDatePickerMonths : ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
 			readonly_element: false,
 			select_other_months: true,
-			show_week_number: (typeof zebraDatePickerWeeks!='undefined') ? zebraDatePickerWeeks : 'St.',
-			lang_clear_date: (typeof zebraDatePickerReset!='undefined') ? zebraDatePickerReset : 'Cancella',
-			show_select_today: (typeof zebraDatePickerToday!='undefined') ? zebraDatePickerToday : 'Oggi',
-			days: (typeof zebraDatePickerDays!='undefined') ? zebraDatePickerDays : ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'],
-			offset: [-el.offsetWidth, el.offsetHeight+255],
-			onSelect: function(){
+			show_week_number: (typeof zebraDatePickerWeeks != 'undefined') ? zebraDatePickerWeeks : 'St.',
+			lang_clear_date: (typeof zebraDatePickerReset != 'undefined') ? zebraDatePickerReset : 'Cancella',
+			show_select_today: (typeof zebraDatePickerToday != 'undefined') ? zebraDatePickerToday : 'Oggi',
+			days: (typeof zebraDatePickerDays != 'undefined') ? zebraDatePickerDays : ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'],
+			offset: [-el.offsetWidth, el.offsetHeight + 255],
+			onSelect: function () {
 				if ("createEvent" in document) {
-					if(typeof this[0].dispatchEvent!='undefined'){
-						var evt = new Event('change', {"bubbles":false, "cancelable":true});
+					if (typeof this[0].dispatchEvent != 'undefined') {
+						var evt = new Event('change', {"bubbles": false, "cancelable": true});
 						this[0].dispatchEvent(evt);
 					}
-				}else{
+				} else {
 					this[0].fireEvent("onchange");
 				}
 			},
-			onClear: function(){
+			onClear: function () {
 				if ("createEvent" in document) {
-					if(typeof this[0].dispatchEvent!='undefined'){
-						var evt = new Event('change', {"bubbles":false, "cancelable":true});
+					if (typeof this[0].dispatchEvent != 'undefined') {
+						var evt = new Event('change', {"bubbles": false, "cancelable": true});
 						this[0].dispatchEvent(evt);
 					}
-				}else{
+				} else {
 					this[0].fireEvent("onchange");
 				}
 			}
 		};
 		var fine = false;
-		if(el.getAttribute('data-datepicker_fine'))
+		if (el.getAttribute('data-datepicker_fine'))
 			fine = el.getAttribute('data-datepicker_fine');
-		if(el.getAttribute('data-datepicker_end'))
+		if (el.getAttribute('data-datepicker_end'))
 			fine = el.getAttribute('data-datepicker_end');
-		if(fine){
-			if(document.getElementById(fine))
-				options['pair'] = $('#'+fine);
-			else if(typeof el.form!='undefined' && typeof el.form[fine]!='undefined')
+		if (fine) {
+			if (document.getElementById(fine))
+				options['pair'] = $('#' + fine);
+			else if (typeof el.form != 'undefined' && typeof el.form[fine] != 'undefined')
 				options['pair'] = $(el.form[fine]);
 		}
 		obj.Zebra_DatePicker(options);
 	}
 }
 
-function isEdge(){
+function isEdge() {
 	return /Edge\/\d./i.test(navigator.appVersion);
 }
 
-window.addEventListener('load', function(){
+window.addEventListener('load', function () {
 	observeMutations(checkDatePicker);
 });
