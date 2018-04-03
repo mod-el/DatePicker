@@ -88,7 +88,7 @@ class Config extends Module_Config
 					'en' => 'Saturday',
 				],
 				'weeks' => [
-					'it' => 'Settimane',
+					'it' => 'Sett.',
 					'en' => 'Weeks',
 				],
 				'today' => [
