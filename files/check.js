@@ -51,28 +51,28 @@ function checkDatePicker(id) {
 }
 
 function attachDatePicker(el, format) {
-	if (typeof format == 'undefined')
+	if (typeof format === 'undefined')
 		format = 'Y-m-d';
 
 	var obj = $(el);
 	var old_datepicker = obj.data('Zebra_DatePicker');
-	if (typeof old_datepicker == 'undefined') {
+	if (typeof old_datepicker === 'undefined') {
 		el.setAttribute('autocomplete', 'off');
 		el.addEventListener('click', ev => ev.preventDefault());
 		var options = {
 			show_icon: false,
 			format: format,
-			months: (typeof zebraDatePickerMonths != 'undefined') ? zebraDatePickerMonths : ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+			months: (typeof zebraDatePickerMonths !== 'undefined') ? zebraDatePickerMonths : ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
 			readonly_element: false,
 			select_other_months: true,
-			show_week_number: (typeof zebraDatePickerWeeks != 'undefined') ? zebraDatePickerWeeks : 'St.',
-			lang_clear_date: (typeof zebraDatePickerReset != 'undefined') ? zebraDatePickerReset : 'Cancella',
-			show_select_today: (typeof zebraDatePickerToday != 'undefined') ? zebraDatePickerToday : 'Oggi',
-			days: (typeof zebraDatePickerDays != 'undefined') ? zebraDatePickerDays : ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'],
+			show_week_number: (typeof zebraDatePickerWeeks !== 'undefined') ? zebraDatePickerWeeks : 'St.',
+			lang_clear_date: (typeof zebraDatePickerReset !== 'undefined') ? zebraDatePickerReset : 'Cancella',
+			show_select_today: (typeof zebraDatePickerToday !== 'undefined') ? zebraDatePickerToday : 'Oggi',
+			days: (typeof zebraDatePickerDays !== 'undefined') ? zebraDatePickerDays : ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'],
 			offset: [-el.offsetWidth, el.offsetHeight + 255],
 			onSelect: function () {
 				if ("createEvent" in document) {
-					if (typeof this[0].dispatchEvent != 'undefined') {
+					if (typeof this[0].dispatchEvent !== 'undefined') {
 						var evt = new Event('change', {"bubbles": false, "cancelable": true});
 						this[0].dispatchEvent(evt);
 					}
@@ -82,7 +82,7 @@ function attachDatePicker(el, format) {
 			},
 			onClear: function () {
 				if ("createEvent" in document) {
-					if (typeof this[0].dispatchEvent != 'undefined') {
+					if (typeof this[0].dispatchEvent !== 'undefined') {
 						var evt = new Event('change', {"bubbles": false, "cancelable": true});
 						this[0].dispatchEvent(evt);
 					}
@@ -92,14 +92,12 @@ function attachDatePicker(el, format) {
 			}
 		};
 		var fine = false;
-		if (el.getAttribute('data-datepicker_fine'))
-			fine = el.getAttribute('data-datepicker_fine');
 		if (el.getAttribute('data-datepicker_end'))
 			fine = el.getAttribute('data-datepicker_end');
 		if (fine) {
 			if (document.getElementById(fine))
 				options['pair'] = $('#' + fine);
-			else if (typeof el.form != 'undefined' && typeof el.form[fine] != 'undefined')
+			else if (typeof el.form !== 'undefined' && typeof el.form[fine] !== 'undefined')
 				options['pair'] = $(el.form[fine]);
 		}
 		obj.Zebra_DatePicker(options);
