@@ -1,14 +1,10 @@
-function checkDatePicker(id) {
+function checkDatePicker() {
 	return new Promise(function (resolve) {
-		if (typeof id != 'string') {
-			var arr = [];
-			if (window.innerWidth >= 480) { // For smaller screen (aka smartphone) use only the default date plugin
-				var arr2 = document.querySelectorAll('input[type="date"]');
-				for (var i in arr2)
-					arr.push(arr2[i]);
-			}
-		} else {
-			var arr = [_(id)];
+		var arr = [];
+		if (window.innerWidth >= 480) { // For smaller screen (aka smartphone) use only the default date plugin
+			var arr2 = document.querySelectorAll('input[type="date"]');
+			for (var i in arr2)
+				arr.push(arr2[i]);
 		}
 
 		for (var i in arr) {
@@ -109,5 +105,5 @@ function isEdge() {
 }
 
 window.addEventListener('load', function () {
-	observeMutations(checkDatePicker);
+	onHtmlChange(checkDatePicker);
 });
