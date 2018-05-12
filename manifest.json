@@ -1,9 +1,10 @@
 {
 	"name": "DatePicker",
 	"description": "Integration with Zebra DatePicker 1.9.8 (via CDN)",
-	"version": "1.2.2",
+	"version": "1.2.3",
 	"dependencies": {
-		"JQuery": ">=1.1.0"
+		"JQuery": ">=1.1.0",
+		"FrontEnd": ">=1.1.2"
 	},
 	"js": [
 		"https://cdn.jsdelivr.net/npm/zebra_datepicker/dist/zebra_datepicker.min.js",
