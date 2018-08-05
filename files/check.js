@@ -54,7 +54,9 @@ function attachDatePicker(el, format) {
 	var old_datepicker = obj.data('Zebra_DatePicker');
 	if (typeof old_datepicker === 'undefined') {
 		el.setAttribute('autocomplete', 'off');
-		el.addEventListener('click', ev => ev.preventDefault());
+		el.addEventListener('click', function (ev) {
+			ev.preventDefault();
+		});
 		var options = {
 			show_icon: false,
 			format: format,
