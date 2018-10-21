@@ -3,6 +3,7 @@
 	"description": "Integration with Zebra DatePicker 1.9.8 (via CDN)",
 	"version": "1.2.3",
 	"dependencies": {
+		"Core": ">=2.7.1",
 		"JQuery": ">=1.1.0",
 		"FrontEnd": ">=1.1.2"
 	},
