@@ -9,7 +9,7 @@ class Config extends Module_Config
 	 */
 	public function makeCache(): bool
 	{
-		if ($this->model->isLoaded('Multilang')) {
+		if ($this->model->moduleExists('Multilang')) {
 			$this->model->_Multilang->checkAndInsertWords('datepicker', [
 				'january' => [
 					'it' => 'Gennaio',
