@@ -103,4 +103,9 @@ class Config extends Module_Config
 		}
 		return true;
 	}
+
+	public function getConfigData(): ?array
+	{
+		return [];
+	}
 }
