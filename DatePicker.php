@@ -9,36 +9,36 @@ class DatePicker extends Module
 	 */
 	public function headings()
 	{
-		if ($this->model->isLoaded('Multilang')) {
+		if (class_exists('\\Model\\Multilang\\Dictionary')) {
 			?>
-            <script>
+			<script>
 				var zebraDatePickerMonths = [
-					'<?=entities($this->model->_Multilang->word('datepicker.january'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.february'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.march'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.april'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.may'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.june'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.july'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.august'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.september'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.october'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.november'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.december'))?>'
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.january'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.february'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.march'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.april'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.may'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.june'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.july'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.august'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.september'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.october'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.november'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.december'))?>'
 				];
 				var zebraDatePickerDays = [
-					'<?=entities($this->model->_Multilang->word('datepicker.sunday'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.monday'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.tuesday'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.wednesday'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.thursday'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.friday'))?>',
-					'<?=entities($this->model->_Multilang->word('datepicker.saturday'))?>'
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.sunday'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.monday'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.tuesday'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.wednesday'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.thursday'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.friday'))?>',
+					'<?=entities(\Model\Multilang\Dictionary::get('datepicker.saturday'))?>'
 				];
-				var zebraDatePickerWeeks = '<?=entities($this->model->_Multilang->word('datepicker.weeks'))?>';
-				var zebraDatePickerToday = '<?=entities($this->model->_Multilang->word('datepicker.today'))?>';
-				var zebraDatePickerReset = '<?=entities($this->model->_Multilang->word('datepicker.reset'))?>';
-            </script>
+				var zebraDatePickerWeeks = '<?=entities(\Model\Multilang\Dictionary::get('datepicker.weeks'))?>';
+				var zebraDatePickerToday = '<?=entities(\Model\Multilang\Dictionary::get('datepicker.today'))?>';
+				var zebraDatePickerReset = '<?=entities(\Model\Multilang\Dictionary::get('datepicker.reset'))?>';
+			</script>
 			<?php
 		}
 	}
