@@ -4,7 +4,6 @@
 	"version": "1.3.0",
 	"dependencies": {
 		"Core": ">=2.10.0",
-		"JQuery": ">=1.3.0",
 		"FrontEnd": ">=1.2.0"
 	},
 	"js": [
@@ -14,5 +13,8 @@
 	"css": [
 		"https://cdn.jsdelivr.net/npm/zebra_datepicker@latest/dist/css/default/zebra_datepicker.min.css"
 	],
-	"assets-position": "foot"
+	"assets-position": "foot",
+	"requires": [
+		"model/assets"
+	]
 }

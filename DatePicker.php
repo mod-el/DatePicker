@@ -4,6 +4,11 @@ use Model\Core\Module;
 
 class DatePicker extends Module
 {
+	public function init(array $options)
+	{
+		\Model\Assets\Assets::enable('jquery');
+	}
+
 	/**
 	 * Eventual headings for multilang websites
 	 */
