@@ -1,4 +1,4 @@
-<?php namespace Model\DatePicker;
+<?php namespace Model\DatePicker\Providers;
 
 use Model\Multilang\AbstractMultilangProvider;
 
