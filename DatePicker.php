@@ -12,7 +12,7 @@ class DatePicker extends Module
 	/**
 	 * Eventual headings for multilang websites
 	 */
-	public function headings()
+	public function headings(): void
 	{
 		if (class_exists('\\Model\\Multilang\\Dictionary')) {
 			?>
